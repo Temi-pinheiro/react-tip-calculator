@@ -1,0 +1,60 @@
+::root {
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Space Mono', Arial, Helvetica, sans-serif;
+  height: 100%;
+  width: 100%;
+}
+
+.textbox {
+  font-family: 'Space Mono', Arial, Helvetica, sans-serif;
+  font-weight: 700;
+  text-align: right;
+  padding: 0.5em 1em;
+  padding-left: 2em;
+  border-radius: 0.5em;
+  font-size: 1.2em;
+  outline: none;
+  border: none;
+  background-color: hsl(189, 41%, 97%);
+  width: 100%;
+  position: relative;
+  border: 2px solid transparent;
+  transition: border-color 200ms ease-in-out;
+}
+
+.textbox:focus {
+  border-color: hsl(172, 67%, 50%);
+}
+
+button {
+  border: none;
+  border-radius: 0.2em;
+  outline: none;
+  padding: 0.3em 1em;
+  font-family: 'Space Mono', Arial, Helvetica, sans-serif;
+  font-weight: 700;
+  font-size: 1.3em;
+  transition: all 200ms ease-in-out;
+  cursor: pointer;
+}
+
+.calculator {
+  width: 87%;
+}
+
+.bottomSpacing {
+  margin-bottom: 2em;
+}
