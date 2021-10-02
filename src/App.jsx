@@ -18,7 +18,7 @@ function App() {
           <h3>Bill</h3>
           <InputContainer>
             <img src={dollar} />
-            <TaxInput className='textbox' type='tel'></TaxInput>
+            <TaxInput className='textbox' type='number'></TaxInput>
           </InputContainer>
         </BillSection>
         <TipSection className='bottomSpacing'>
@@ -27,12 +27,12 @@ function App() {
             {tips.map((tip) => {
               return <TipButton value={tip} key={tip} />;
             })}
-            <TipInput className='textbox' placeholder='Custom' type='tel' />
+            <TipInput className='textbox' placeholder='Custom' type='number' />
           </ButtonSection>
           <h3>Number of People</h3>
           <InputContainer>
             <img src={person} />
-            <PeopleInput className='textbox' type='tel'></PeopleInput>
+            <PeopleInput className='textbox' type='number'></PeopleInput>
           </InputContainer>
         </TipSection>
         <ResultCard className='bottomSpacing'>
