@@ -7,6 +7,7 @@ import person from '../images/icon-person.svg';
 import dollar from '../images/icon-dollar.svg';
 
 const tips = [5, 10, 15, 25, 50];
+// console.log(window.innerWidth);
 
 function App() {
   return (
@@ -17,7 +18,10 @@ function App() {
           <h3>Bill</h3>
           <InputContainer>
             <img src={dollar} />
-            <TaxInput className='textbox'></TaxInput>
+            <TaxInput
+              className='textbox'
+              type={window.innerWidth <= 450 ? 'number' : 'tel'}
+            ></TaxInput>
           </InputContainer>
         </BillSection>
         <TipSection className='bottomSpacing'>
@@ -26,12 +30,19 @@ function App() {
             {tips.map((tip) => {
               return <TipButton value={tip} key={tip} />;
             })}
-            <TipInput className='textbox' placeholder='Custom' />
+            <TipInput
+              className='textbox'
+              placeholder='Custom'
+              type={window.innerWidth <= 450 ? 'number' : 'tel'}
+            />
           </ButtonSection>
           <h3>Number of People</h3>
           <InputContainer>
             <img src={person} />
-            <PeopleInput className='textbox'></PeopleInput>
+            <PeopleInput
+              className='textbox'
+              type={window.innerWidth <= 450 ? 'number' : 'tel'}
+            ></PeopleInput>
           </InputContainer>
         </TipSection>
         <ResultCard className='bottomSpacing'>
