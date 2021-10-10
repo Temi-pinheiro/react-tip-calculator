@@ -1,9 +1,13 @@
 import { useState } from 'react';
 
 function TipButton(props) {
-  const { value } = props;
+  const { value, getTip } = props;
 
-  return <button>{value}%</button>;
+  const handleClick = (e) => {
+    getTip(value);
+  };
+
+  return <button onClick={handleClick}>{value}%</button>;
 }
 
 export default TipButton;
