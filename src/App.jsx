@@ -6,8 +6,6 @@ import TipButton from './TipButtons';
 import person from '../images/icon-person.svg';
 import dollar from '../images/icon-dollar.svg';
 
-// console.log(window.innerWidth);
-
 function App() {
   const tips = [5, 10, 15, 25, 50];
 
@@ -25,7 +23,6 @@ function App() {
   }, [tipPercentage, bill, people]);
 
   const handleBillChange = (e) => {
-    // console.log(e);
     setBill(e.target.value);
   };
   const handlePeopleChange = (e) => {
@@ -70,7 +67,6 @@ function App() {
     setActive(false);
   };
 
-  //TODO create a production branch without comments
   return (
     <Container>
       <img src={logo} alt='logo' />
@@ -147,7 +143,6 @@ function App() {
 
 const Container = styled.div`
   background-color: hsl(185, 41%, 84%);
-  /* height: 100vh; */
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -182,17 +177,12 @@ const Calculator = styled.div`
 
   @media (min-width: 960px) {
     width: 50%;
-    /* height: 60%; */
     max-height: 28.75em;
     min-height: 28.125em;
     border-radius: 1em;
-    /* display: grid;
-    grid-template-columns: 50% 50%;
-    grid-gap: 2em; */
     flex-direction: row;
     padding: 2em 2em;
     margin-top: 6em;
-    /* flex-direction: row; */
   }
 `;
 const BillSection = styled.section``;
@@ -213,8 +203,6 @@ const ButtonSection = styled.section`
       background-color: hsl(172, 67%, 80%);
       color: hsl(183, 100%, 15%);
     }
-    /* margin-top: 1em; */
-    /* margin-right: 0.5em; */
   }
 
   @media (min-width: 960px) {
@@ -244,10 +232,6 @@ const ResultCard = styled.section`
     flex-grow: 1;
     margin-top: 0;
     padding: 1em 2.5em;
-    /* display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    justify-content: space-between; */
   }
 `;
 const TipAmount = styled.section`
@@ -294,7 +278,6 @@ const PeopleSection = styled.section`
 
     #zero {
       color: #d49090;
-      /* display: none; */
       visibility: hidden;
       opacity: 0;
       transition: all 200ms ease-in-out;
@@ -331,7 +314,6 @@ const ResetButton = styled.button`
 
 const VariablesContainer = styled.div`
   @media (min-width: 960px) {
-    /* padding-right: 2em; */
     width: 48%;
     margin-right: 2em;
   }
