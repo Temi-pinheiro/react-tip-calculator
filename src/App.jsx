@@ -75,12 +75,13 @@ function App() {
           <BillSection className='bottomSpacing'>
             <h3>Bill</h3>
             <InputContainer>
-              <img src={dollar} />
+              <img src={dollar} alt='dollar icon' />
               <BillInput
                 className='textbox'
                 type='number'
                 value={bill}
                 onChange={handleBillChange}
+                placeholder='0'
               ></BillInput>
             </InputContainer>
           </BillSection>
@@ -106,12 +107,13 @@ function App() {
               <h3 id='zero'>Can't be zero</h3>
             </div>
             <InputContainer>
-              <img src={person} />
+              <img src={person} alt='person icon' />
               <PeopleInput
                 className={`${isActive && people < 1 && 'negative'} textbox`}
                 type='number'
                 value={people}
                 onChange={handlePeopleChange}
+                placeholder='0'
               ></PeopleInput>
             </InputContainer>
           </PeopleSection>
@@ -295,15 +297,17 @@ const PeopleSection = styled.section`
 const ResetButton = styled.button`
   padding: 0.7em 1em;
   text-transform: uppercase;
-  color: hsl(183, 100%, 15%);
+  color: ${(props) => {
+    props.disabled ? 'hsl(184, 14%, 56%)' : 'hsl(183, 100%, 15%)';
+  }};
   width: 100%;
   margin-top: 5.4em;
   margin-bottom: 1em;
   background-color: ${(props) =>
-    props.disabled ? 'hsl(184, 14%, 56%)' : 'hsl(172, 67%, 45%)'};
+    props.disabled ? 'hsl(183, 100%, 18%)' : 'hsl(172, 67%, 45%)'};
   &:hover {
     background-color: ${(props) =>
-      props.disabled ? 'hsl(184, 14%, 56%)' : 'hsl(172, 67%, 80%)'};
+      props.disabled ? 'hsl(183, 100%, 18%)' : 'hsl(172, 67%, 80%)'};
     cursor: ${(props) => (props.disabled ? 'initial' : 'pointer')};
   }
 
