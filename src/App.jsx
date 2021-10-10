@@ -75,49 +75,52 @@ function App() {
     <Container>
       <img src={logo} alt='logo' />
       <Calculator className='calculator'>
-        <BillSection className='bottomSpacing'>
-          <h3>Bill</h3>
-          <InputContainer>
-            <img src={dollar} />
-            <BillInput
-              className='textbox'
-              type='number'
-              value={bill}
-              onChange={handleBillChange}
-            ></BillInput>
-          </InputContainer>
-        </BillSection>
-        <TipSection className='bottomSpacing'>
-          <h3>Select Tip %</h3>
-          <ButtonSection className='bottomSpacing'>
-            {tips.map((tip) => {
-              return <TipButton value={tip} key={tip} getTip={assignTips} />;
-            })}
-            <TipInput
-              className='textbox'
-              placeholder='Custom'
-              type='number'
-              value={customAmount}
-              onChange={handleAmountChange}
-            />
-          </ButtonSection>
-        </TipSection>
+        <VariablesContainer>
+          <BillSection className='bottomSpacing'>
+            <h3>Bill</h3>
+            <InputContainer>
+              <img src={dollar} />
+              <BillInput
+                className='textbox'
+                type='number'
+                value={bill}
+                onChange={handleBillChange}
+              ></BillInput>
+            </InputContainer>
+          </BillSection>
+          <TipSection className='bottomSpacing'>
+            <h3>Select Tip %</h3>
+            <ButtonSection className='bottomSpacing'>
+              {tips.map((tip) => {
+                return <TipButton value={tip} key={tip} getTip={assignTips} />;
+              })}
+              <TipInput
+                className='textbox'
+                placeholder='Custom'
+                type='number'
+                value={customAmount}
+                onChange={handleAmountChange}
+              />
+            </ButtonSection>
+          </TipSection>
 
-        <PeopleSection>
-          <div className='people'>
-            <h3>Number of People</h3>
-            <h3 id='zero'>Can't be zero</h3>
-          </div>
-          <InputContainer>
-            <img src={person} />
-            <PeopleInput
-              className={`${isActive && people < 1 && 'negative'} textbox`}
-              type='number'
-              value={people}
-              onChange={handlePeopleChange}
-            ></PeopleInput>
-          </InputContainer>
-        </PeopleSection>
+          <PeopleSection>
+            <div className='people'>
+              <h3>Number of People</h3>
+              <h3 id='zero'>Can't be zero</h3>
+            </div>
+            <InputContainer>
+              <img src={person} />
+              <PeopleInput
+                className={`${isActive && people < 1 && 'negative'} textbox`}
+                type='number'
+                value={people}
+                onChange={handlePeopleChange}
+              ></PeopleInput>
+            </InputContainer>
+          </PeopleSection>
+        </VariablesContainer>
+
         <ResultCard className='bottomSpacing'>
           <TipAmount>
             <p>
@@ -149,9 +152,13 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  /* justify-content: center; */
   align-items: center;
   padding-top: 3em;
+
+  @media (min-width: 960px) {
+    padding-top: 8em;
+    height: 100%;
+  }
 `;
 
 const Calculator = styled.div`
@@ -172,6 +179,21 @@ const Calculator = styled.div`
     font-size: 1em;
     margin-bottom: 0.5em;
   }
+
+  @media (min-width: 960px) {
+    width: 50%;
+    /* height: 60%; */
+    max-height: 28.75em;
+    min-height: 28.125em;
+    border-radius: 1em;
+    /* display: grid;
+    grid-template-columns: 50% 50%;
+    grid-gap: 2em; */
+    flex-direction: row;
+    padding: 2em 2em;
+    margin-top: 6em;
+    /* flex-direction: row; */
+  }
 `;
 const BillSection = styled.section``;
 const BillInput = styled.input``;
@@ -188,11 +210,21 @@ const ButtonSection = styled.section`
     color: white;
 
     &:hover {
-      background-color: hsl(172, 67%, 60%);
+      background-color: hsl(172, 67%, 80%);
       color: hsl(183, 100%, 15%);
     }
     /* margin-top: 1em; */
     /* margin-right: 0.5em; */
+  }
+
+  @media (min-width: 960px) {
+    display: grid;
+    grid-template-columns: repeat(3, 33.3%);
+    padding-right: 2em;
+
+    button {
+      width: 100%;
+    }
   }
 `;
 const TipInput = styled.input`
@@ -207,6 +239,16 @@ const ResultCard = styled.section`
   padding: 1em;
   color: hsl(189, 41%, 97%);
   margin-top: 1em;
+
+  @media (min-width: 960px) {
+    flex-grow: 1;
+    margin-top: 0;
+    padding: 1em 2.5em;
+    /* display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-between; */
+  }
 `;
 const TipAmount = styled.section`
   display: flex;
@@ -271,12 +313,27 @@ const ResetButton = styled.button`
   text-transform: uppercase;
   color: hsl(183, 100%, 15%);
   width: 100%;
+  margin-top: 5.4em;
+  margin-bottom: 1em;
   background-color: ${(props) =>
     props.disabled ? 'hsl(184, 14%, 56%)' : 'hsl(172, 67%, 45%)'};
   &:hover {
     background-color: ${(props) =>
       props.disabled ? 'hsl(184, 14%, 56%)' : 'hsl(172, 67%, 80%)'};
     cursor: ${(props) => (props.disabled ? 'initial' : 'pointer')};
+  }
+
+  @media (min-width: 960px) {
+    padding: 0.5em 1em;
+    margin-bottom: 0.3em;
+  }
+`;
+
+const VariablesContainer = styled.div`
+  @media (min-width: 960px) {
+    /* padding-right: 2em; */
+    width: 48%;
+    margin-right: 2em;
   }
 `;
 

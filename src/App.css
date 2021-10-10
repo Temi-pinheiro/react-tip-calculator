@@ -12,10 +12,17 @@
   padding: 0;
 }
 
+html,
+#root,
+.App {
+  height: 100%;
+}
+
 body {
   font-family: 'Space Mono', Arial, Helvetica, sans-serif;
   height: 100%;
   width: 100%;
+  font-size: calc(11px + 5 * ((100vw - 450px) / 1470));
 }
 
 .textbox {
@@ -55,9 +62,9 @@ button {
   cursor: pointer;
 }
 
-.calculator {
+/* .calculator {
   width: 87%;
-}
+} */
 
 .bottomSpacing {
   margin-bottom: 2em;
